@@ -3,15 +3,18 @@ const user = require("../controllers/user");
 const router = new Router({
   prefix: "/user",
 });
-const { add, query, update, remove } = user;
 
+// 用户登录
+router.post("/login", user.login);
+// 用户注册
+router.post("/register", user.register);
 // 用户新增
-router.post("/add", add);
+router.post("/add", user.add);
 // 用户查询
-router.get("/", query);
+router.get("/", user.query);
 // 更新用户
-router.post("/update", update);
+router.post("/update", user.update);
 // 用户删除
-router.post("/del", remove);
+router.post("/del", user.remove);
 
 module.exports = router;

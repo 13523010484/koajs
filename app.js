@@ -1,4 +1,5 @@
 const Koa = require("koa");
+const path = require("path");
 const static = require("koa-static");
 const bodyParser = require("koa-bodyparser");
 const jsonError = require("koa-json-error");
@@ -6,8 +7,10 @@ const parameter = require("koa-parameter");
 const router = require("./routes/user.js");
 const upload = require("./routes/upload.js");
 const app = new Koa();
+
 // 绑定静态文件目录
-app.use(static("public"));
+app.use(static("./"));
+
 // 注意 bodyParser router 有先后顺序
 app.use(jsonError());
 app.use(bodyParser());

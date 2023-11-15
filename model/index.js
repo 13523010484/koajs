@@ -9,8 +9,30 @@ const Users = mongoose.model(
   "users",
   new mongoose.Schema({
     name: String,
-    email: String,
-    password: String,
+    password: {
+      type: String,
+      select: false,
+    },
+    avatar: {
+      type: String,
+      default: "",
+    },
+    gender: {
+      type: String,
+      default: "",
+    },
+    desc: {
+      type: String,
+      default: "",
+    },
+    phone: {
+      type: String,
+      default: "",
+    },
+    email: {
+      type: String,
+      default: "",
+    },
   })
 );
 
